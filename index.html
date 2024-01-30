@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokemonAPI</title>
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+
+<body class="mainbg">
+
+    <!-- Nav/Fav -->
+
+    <div class="grid grid-cols-2 bg-white bg-opacity-25 pb-[25px]">
+        <div class="text-[50px] pt-5 ps-5">
+            POKEDEX
+        </div>
+        <div class="text-[40px] pt-6 pe-5 text-end grid grid-cols-8">
+            <div class="col-span-7">
+                <button id="FavBtn">
+                    Favorites
+                </button>
+            </div>
+            <div class="relative pt-3">
+                <img src="/assets/star.png" width="35px" class="absolute left-4" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Favorites Overlay -->
+
+    <div id="FavOver" class="relative invisible">
+        <div class="bg-black bg-opacity-50 absolute right-0 ps-80">
+            <p class="text-white text-right text-[40px]">
+                Pokemon Name
+            </p>
+        </div>
+    </div>
+
+    <!-- Search Bar -->
+
+    <div class="text-center text-[20px] pt-5">
+        Search Your Favorite Pokemon!
+    </div>
+    <div class="text-center pt-5">
+        <input type="text" id="searchInput" class="w-[350px] h-[30px] rounded-[5px] ps-2"
+            placeholder="Search a Pokemon..." />
+    </div>
+    <div class="text-center pt-5 pb-5">
+        <button id="GoBtn" class="bg-white w-[175px] h-[25px] rounded-[5px]">
+            Go!
+        </button>
+    </div>
+
+    <!-- Text/Images -->
+
+    <div class="grid grid-cols-12">
+        <div class="text-yellow-200 ps-5 pb-1 col-span-3">
+            Click Image & Change to Shiny!
+        </div>
+        <div id="PokeNum" class="col-span-1 text-end pe-5">
+            #000
+        </div>
+    </div>
+
+    <div class="grid grid-cols-6">
+
+        <!-- Pokemon Image -->
+
+        <div class="col-span-2 ps-5">
+            <div class="relative">
+                <img id="PokeImg" src="/assets/Placeholdersquare.png" class="border-[3px] border-white rounded-[10px]"
+                    width="450px" alt="">
+                <p id="LocationTxt" class="absolute bottom-1 ps-2 text-[20px]">
+                    Location: Route
+                </p>
+            </div>
+
+            <!-- Buttons -->
+
+            <div class="text-[25px] text-center">
+                <div class="pt-2">
+                    <button id="AddFavBtn" class="bg-white rounded-[25px] opacity-75 w-[450px] h-[50px]">Favorite</button>
+                </div>
+                <div class="relative pt-2">
+                    <button id="EvolutionBtn" class="bg-white rounded-[25px] opacity-75 w-[450px] h-[50px]">Evolutions</button>
+                </div>
+                <div class="relative pt-2">
+                    <button id="RandomBtn" class="bg-white rounded-[25px] opacity-75 w-[450px] h-[50px]">Random</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pokemon Info -->
+
+        <div class="col-span-3 ps-16">
+            <div class="col-span-3 text-[40px] grid grid-cols-9">
+                <div class="col-span-3">
+                    <p id="PokeName">
+                        Pokemon
+                    </p>
+                </div>
+                <div class="pt-2 col-span-3">
+                    <img id="TypeImg" src="/assets/Fire.png" alt="">
+                </div>
+                <div class="pt-2 col-span-3">
+                    <img id="TypeImg2" src="/assets/Fire.png" alt="">
+                </div>
+            </div>
+
+            <div class="col-span-3">
+                <div class="pb-1 pt-3">
+                    <p class="text-[30px]">
+                        All Abilities
+                    </p>
+                </div>
+                <div id="AbilityTxt" class="text-[20px]">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3">
+                <div class="pb-1 pt-3 col-span-3">
+                    <p class="text-[30px]">
+                        All Moves
+                    </p>
+                </div>
+                <div id="MoveTxt" class="col-span-2 text-[20px] scrolltxt">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio et neque at nam! Asperiores eligendi
+                    tempora vel dolore placeat id provident, fuga voluptatem, dolores illum est, modi consectetur nisi
+                    consequuntur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt consequuntur ad
+                    harum velit incidunt libero ullam iste perspiciatis enim hic quibusdam eligendi earum minus nisi
+                    ipsum officiis veritatis, placeat beatae.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/app.js"></script>
+
+</body>
+
+</html>

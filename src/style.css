@@ -1,0 +1,16 @@
+@font-face {
+    font-family: Mc;
+    src: url(/fonts/McLaren-Regular.ttf);
+}
+
+.mainbg {
+    background-image: url(/assets/Pikachusurf.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-family: Mc;
+}
+
+.scrolltxt {
+    overflow-y: auto;
+    height: 130px;
+}
