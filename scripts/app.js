@@ -18,7 +18,12 @@ let TypeImg2 = document.getElementById('TypeImg2')
 let AbilityTxt = document.getElementById('AbilityTxt')
 let MoveTxt = document.getElementById('MoveTxt')
 
+let Evo1 = document.getElementById('Evo1')
+let Evo2 = document.getElementById('Evo2')
+let Evo3 = document.getElementById('Evo3')
+
 let Pokemon = "";
+let PokemonId;
 
 FavBtn.addEventListener('click', () => {
     if (FavOver.classList.contains('invisible')) {
@@ -48,6 +53,22 @@ const PokemonApi = async (Pokemon) => {
     const data = await promise.json();
     console.log(data);
     fillstuff(data);
+    let pokeid = data.id
+    PokemonEvoData(pokeid)
+}
+
+const PokemonEvoData = async (pokeid) => {
+    const promise = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokeid}`)
+    const evodata = await promise.json();
+    let aaaa = evodata.evolution_chain.url
+    console.log(evodata)
+    PokemonEvoChain(aaaa)
+}
+
+const PokemonEvoChain = async (aaaa) => {
+    const promise = await fetch(`${aaaa}`)
+    const evochain = await promise.json();
+    console.log(evochain)
 }
 
 function fillstuff(data) {
@@ -62,7 +83,6 @@ function fillstuff(data) {
     //Image changer/show
 
     let img = data.sprites.other.home.front_default;
-    console.log(img)
     PokeImg.addEventListener('click', () => {
         if (PokeImg.src === data.sprites.other.home.front_shiny) {
             img = data.sprites.other.home.front_default;
@@ -233,4 +253,14 @@ function fillstuff(data) {
             console.log("No Second Type");
             break;
     }
+
+
+    //Evolution Src
+
+    Evo1.src = data.sprites.other.showdown.front_default
+
+
+    //Location Text
+
+
 }
