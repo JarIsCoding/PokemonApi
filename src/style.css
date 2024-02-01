@@ -10,7 +10,31 @@
     font-family: Mc;
 }
 
+@media (max-width: 800px) {
+    .mainbg {
+        background-image: url(/assets/MobPika.png);
+        height: auto;
+    }
+}
+
+@media (max-width: 325px) {
+    .mainbg {
+        background-image: url(/assets/MobPika.png);
+    }
+}
+
 .scrolltxt {
     overflow-y: auto;
     height: 130px;
+}
+
+.btnchange {
+    width: 450px;
+    height: 50px;
+}
+
+@media (max-width: 800px) {
+    .btnchange {
+        width:  240px;
+    }
 }

@@ -32,7 +32,7 @@
     <!-- Favorites Overlay -->
 
     <div id="FavOver" class="relative invisible">
-        <div class="bg-black bg-opacity-50 absolute right-0 ps-80">
+        <div id="getFavoritesDiv" class="bg-black bg-opacity-50 absolute right-0 ps-80">
             <p class="text-white text-right text-[40px]">
                 Pokemon Name
             </p>
@@ -58,7 +58,7 @@
 
     <div class="grid grid-cols-12">
         <div class="text-yellow-200 ps-5 pb-1 col-span-3">
-            Click Image & Change to Shiny!
+            Click for Shiny!
         </div>
         <div id="PokeNum" class="col-span-1 text-end pe-5">
             #000
@@ -80,30 +80,29 @@
 
             <!-- Buttons -->
 
-            <div class="text-[25px] text-center">
+            <div class="text-[25px]">
                 <div class="pt-2">
-                    <button id="AddFavBtn"
-                        class="bg-white rounded-[25px] opacity-75 w-[450px] h-[50px]">Favorite</button>
+                    <button id="AddFavBtn" class="bg-white rounded-[25px] opacity-75 btnchange">Favorite</button>
                 </div>
-                <div class="relative pt-2">
-                    <button id="RandomBtn" class="bg-white rounded-[25px] opacity-75 w-[450px] h-[50px]">Random</button>
+                <div class="pt-2">
+                    <button id="RandomBtn" class="bg-white rounded-[25px] opacity-75 btnchange">Random</button>
                 </div>
             </div>
         </div>
 
         <!-- Pokemon Info -->
 
-        <div class="col-span-3 ps-16">
+        <div class="col-span-3 ps-16 lg:block hidden">
             <div class="col-span-3 text-[40px] grid grid-cols-9">
                 <div class="col-span-3">
                     <p id="PokeName">
                         Pokemon
                     </p>
                 </div>
-                <div class="pt-2 col-span-3">
+                <div class="pt-2 col-span-2">
                     <img id="TypeImg" src="/assets/Normal.png" alt="Pokemon Type">
                 </div>
-                <div class="pt-2 col-span-3">
+                <div class="pt-2 col-span-2">
                     <img id="TypeImg2" src="/assets/Normal.png">
                 </div>
             </div>
@@ -164,9 +163,83 @@
                 </div>
             </div>
         </div>
+
+        <!--PokeTablet-------------------------------------------------------->
+
+        <div class="col-span-12 ps-5 lg:invisible visible">
+            <div class="col-span-3 text-[40px] grid grid-cols-8">
+                <div class="col-span-2">
+                    <p id="PokeNametab">
+                        Pokemon
+                    </p>
+                </div>
+                <div class="pt-2 col-span-2">
+                    <img id="TypeImgtab" src="/assets/Normal.png" alt="Pokemon Type">
+                </div>
+                <div class="pt-2 col-span-2">
+                    <img id="TypeImg2tab" src="/assets/Normal.png">
+                </div>
+            </div>
+
+            <div class="col-span-3">
+                <div class="pb-1 pt-3">
+                    <p class="text-[30px]">
+                        All Abilities
+                    </p>
+                </div>
+                <div id="AbilityTxttab" class="text-[20px]">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3">
+                <div class="pb-1 pt-3 col-span-3">
+                    <p class="text-[30px]">
+                        All Moves
+                    </p>
+                </div>
+                <div id="MoveTxttab" class="col-span-3 text-[20px] scrolltxt">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio et neque at nam! Asperiores eligendi
+                    tempora vel dolore placeat id provident, fuga voluptatem, dolores illum est, modi consectetur nisi
+                    consequuntur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt consequuntur ad
+                    harum velit incidunt libero ullam iste perspiciatis enim hic quibusdam eligendi earum minus nisi
+                    ipsum officiis veritatis, placeat beatae.
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3">
+
+                <div class="pb-1 pt-3 col-span-3">
+                    <p class="text-[30px]">
+                        Evolutions
+                    </p>
+                </div>
+
+                <div class="col-span-2">
+                    <div class="grid grid-cols-3 gap-4">
+                        <img id="Evo1" src="./assets/Placeholdersquare.png" class="w-[100px] mx-auto" alt="">
+                        <img id="Evo2" src="./assets/Placeholdersquare.png" class="w-[100px] mx-auto" alt="">
+                        <img id="Evo3" src="./assets/Placeholdersquare.png" class="w-[100px] mx-auto" alt="">
+                    </div>
+                </div>
+
+                <div class="col-span-2">
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <p>
+                            Stage 1
+                        </p>
+                        <p>
+                            Stage 2
+                        </p>
+                        <p>
+                            Stage 3
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="./scripts/app.js"></script>
+    <script type="module" src="./scripts/app.js"></script>
 
 </body>
 
