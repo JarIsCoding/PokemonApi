@@ -13,18 +13,38 @@
 
     <!-- Nav/Fav -->
 
-    <div class="grid grid-cols-2 bg-white bg-opacity-25 pb-[25px]">
-        <div class="text-[50px] pt-5 ps-5">
-            POKEDEX
-        </div>
-        <div class="text-[40px] pt-6 pe-5 text-end grid grid-cols-8">
-            <div class="col-span-7">
-                <button id="FavBtn">
-                    Favorites
-                </button>
+    <div class="sm:block hidden">
+        <div class="grid grid-cols-2 bg-white bg-opacity-25 pb-[25px]">
+            <div class="text-[50px] pt-5 ps-5">
+                POKEDEX
             </div>
-            <div class="relative pt-3">
-                <img src="/assets/star.png" width="35px" class="absolute left-4" alt="">
+            <div class="text-[40px] pt-6 pe-5 text-end grid grid-cols-8">
+                <div class="col-span-7">
+                    <button id="FavBtn">
+                        Favorites
+                    </button>
+                </div>
+                <div class="relative pt-3">
+                    <img src="/assets/star.png" width="35px" class="absolute left-4" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sm:hidden block">
+        <div class="grid grid-cols-2 bg-white bg-opacity-25 pb-[25px]">
+            <div class="text-[25px] pt-5 ps-5 ">
+                POKEDEX
+            </div>
+            <div class="text-[20px] pt-6 pe-5 text-end grid grid-cols-8">
+                <div class="col-span-7">
+                    <button id="FavBtn2">
+                        Favorites
+                    </button>
+                </div>
+                <div class="relative pt-1">
+                    <img src="/assets/star.png" width="35px" class="absolute left-4" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -32,7 +52,7 @@
     <!-- Favorites Overlay -->
 
     <div id="FavOver" class="relative invisible">
-        <div id="getFavoritesDiv" class="bg-black bg-opacity-50 absolute right-0 ps-80">
+        <div id="getFavoritesDiv" class="bg-black bg-opacity-50 absolute right-0 ps-40">
             <p class="text-white text-right text-[40px]">
                 Pokemon Name
             </p>
@@ -69,7 +89,7 @@
 
         <!-- Pokemon Image -->
 
-        <div class="col-span-2 ps-5">
+        <div class="col-span-2 ps-5 sm:block hidden">
             <div class="relative">
                 <img id="PokeImg" src="/assets/Placeholdersquare.png" class="border-[3px] border-white rounded-[10px]"
                     width="450px" alt="Pokemon Image">
@@ -86,6 +106,29 @@
                 </div>
                 <div class="pt-2">
                     <button id="RandomBtn" class="bg-white rounded-[25px] opacity-75 btnchange">Random</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-span-12 ps-5 pe-5 sm:hidden block">
+            <div class="relative">
+                <img id="PokeImg2" src="/assets/Placeholdersquare.png" class="border-[3px] border-white rounded-[10px]"
+                    width="450px" alt="Pokemon Image">
+                <p id="LocationTxt" class="absolute bottom-1 ps-2 text-[20px]">
+                    Location: Route
+                </p>
+            </div>
+
+            <!-- Buttons -->
+
+            <div class="text-[25px] text-center">
+                <div class="pt-2">
+                    <button id="AddFavBtn2" class="bg-white rounded-[25px] opacity-75 btnchange">Favorite</button>
+                </div>
+                <div class="pt-2">
+                    <button id="RandomBtn2" class="bg-white rounded-[25px] opacity-75 btnchange">Random</button>
                 </div>
             </div>
         </div>
@@ -142,9 +185,15 @@
 
                 <div class="col-span-2">
                     <div class="grid grid-cols-3 gap-4">
-                        <img id="Evo1" src="./assets/Placeholdersquare.png" class="w-[100px] mx-auto" alt="">
-                        <img id="Evo2" src="./assets/Placeholdersquare.png" class="w-[100px] mx-auto" alt="">
-                        <img id="Evo3" src="./assets/Placeholdersquare.png" class="w-[100px] mx-auto" alt="">
+                        <p id="Evo1" class="text-[20px]">
+                            asda
+                        </p>
+                        <p id="Evo2" class="text-[20px]">
+                            addad
+                        </p>
+                        <p id="Evo3" class="text-[20px]">
+                            asdasf
+                        </p>
                     </div>
                 </div>
 
@@ -173,10 +222,10 @@
                         Pokemon
                     </p>
                 </div>
-                <div class="pt-2 col-span-2">
+                <div class="pt-2 col-span-12">
                     <img id="TypeImgtab" src="/assets/Normal.png" alt="Pokemon Type">
                 </div>
-                <div class="pt-2 col-span-2">
+                <div class="pt-2 col-span-12">
                     <img id="TypeImg2tab" src="/assets/Normal.png">
                 </div>
             </div>
@@ -216,9 +265,15 @@
 
                 <div class="col-span-2">
                     <div class="grid grid-cols-3 gap-4">
-                        <img id="Evo1" src="./assets/Placeholdersquare.png" class="w-[100px] mx-auto" alt="">
-                        <img id="Evo2" src="./assets/Placeholdersquare.png" class="w-[100px] mx-auto" alt="">
-                        <img id="Evo3" src="./assets/Placeholdersquare.png" class="w-[100px] mx-auto" alt="">
+                        <p id="Evo1m" class="text-[20px]">
+                            asda
+                        </p>
+                        <p id="Evo2m" class="text-[20px]">
+                            addad
+                        </p>
+                        <p id="Evo3m" class="text-[20px]">
+                            asdasf
+                        </p>
                     </div>
                 </div>
 

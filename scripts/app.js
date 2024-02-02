@@ -1,18 +1,21 @@
 import { saveToLocalStorage, getlocalStorage, removeFromLocalStorage } from "./localstorage.js";
 
 let FavBtn = document.getElementById('FavBtn')
+let FavBtn2 = document.getElementById('FavBtn2')
 let FavOver = document.getElementById('FavOver')
 
 let searchInput = document.getElementById('searchInput')
 let GoBtn = document.getElementById('GoBtn')
 
 let PokeImg = document.getElementById('PokeImg')
+let PokeImg2 = document.getElementById('PokeImg2')
 let PokeNum = document.getElementById('PokeNum')
 let LocationTxt = document.getElementById('LocationTxt')
 
 let AddFavBtn = document.getElementById('AddFavBtn')
-let favpokename = document.getElementById('favpokename')
+let AddFavBtn2 = document.getElementById('AddFavBtn2')
 let RandomBtn = document.getElementById('RandomBtn')
+let RandomBtn2 = document.getElementById('RandomBtn2')
 
 let PokeName = document.getElementById('PokeName')
 let TypeImg = document.getElementById('TypeImg')
@@ -29,6 +32,9 @@ let MoveTxttab = document.getElementById('MoveTxttab')
 let Evo1 = document.getElementById('Evo1')
 let Evo2 = document.getElementById('Evo2')
 let Evo3 = document.getElementById('Evo3')
+let Evo1m = document.getElementById('Evo1m')
+let Evo2m = document.getElementById('Evo2m')
+let Evo3m = document.getElementById('Evo3m')
 
 let Pokemon;
 let PokemonName = "pikachu"
@@ -53,8 +59,70 @@ searchInput.addEventListener('keydown', async (event) => {
 AddFavBtn.addEventListener("click", async () => {
     saveToLocalStorage(name);
 })
+AddFavBtn2.addEventListener("click", async () => {
+    saveToLocalStorage(name);
+})
 
 FavBtn.addEventListener('click', () => {
+
+    if(FavOver.classList.contains("invisible")){
+        FavOver.classList.remove("invisible")
+    }else{
+        FavOver.classList.add("invisible");
+    }
+
+    //This retrieves our data from local storage and stores it into favorites variable.
+    let favorites = getlocalStorage();
+
+    // Clears getFAvoritesDiv so the Array display will not constantly repeat.
+    getFavoritesDiv.textContent = "";
+
+    //map through each element in our array 
+    favorites.map(digiName => {
+        let div = document.createElement('div')
+
+        div.className = "grid grid-cols-3"
+        //Creating a P-tag Dynamically
+        let p = document.createElement('p');
+
+        //Setting its text content to digiName
+        p.textContent = digiName;
+
+        // className replaces all classes with out new classes
+        p.className = "text-white text-end text-[40px] col-span-2";
+        p.id = "favpokename";
+
+        //Creating a button dynamically
+        let button = document.createElement('button');
+
+        button.type = "button"
+        button.textContent = "X";
+
+        //classList allows us to be a little more concise it doesn't replace all classes.
+        button.classList.add(
+            "text-white",
+            "text-center",
+            "text-[40px]"
+        );
+
+        //creating an addEventListner for our button which removes digiName from our favorites
+        button.addEventListener('click', () => {
+
+            removeFromLocalStorage(digiName);
+
+            div.remove();
+        })
+        // appending our button to our p-tag
+        div.append(p);
+        div.append(button);
+        //appending our p-tag to our FavoritesDiv
+        getFavoritesDiv.append(div);
+    })
+
+
+})
+
+FavBtn2.addEventListener('click', () => {
 
     if(FavOver.classList.contains("invisible")){
         FavOver.classList.remove("invisible")
@@ -118,7 +186,14 @@ const getRandomPokemonName = () => {
     return PokemonApi(randomId);
 };
 
+
 RandomBtn.addEventListener('click', async () => {
+    PokemonName = await getRandomPokemonName();
+    Pokemon = await PokemonApi(PokemonName);
+    PokemonApi(Pokemon);
+});
+
+RandomBtn2.addEventListener('click', async () => {
     PokemonName = await getRandomPokemonName();
     Pokemon = await PokemonApi(PokemonName);
     PokemonApi(Pokemon);
@@ -127,20 +202,28 @@ RandomBtn.addEventListener('click', async () => {
 const PokemonApi = async (Pokemon) => {
     const promise = await fetch(`https://pokeapi.co/api/v2/pokemon/${Pokemon}`);
     const data = await promise.json();
+    let Location = data.location_area_encounters;
+    let id =  data.id;
     console.log(data)
-    PokemonLoaction(data)
+    PokemonLoaction(Location)
     fillstuff(data);
+    PokemonEvo(id)
 }
 
-const PokemonLoaction = async (Pokemon) => {
-    const promise = await fetch(`https://pokeapi.co/api/v2/pokemon/${Pokemon}/encounters`);
+const PokemonLoaction = async (Location) => {
+    const promise = await fetch(Location)
+    const LocationData = await promise.json();
+    console.log(LocationData)
+
+    let fridge = LocationData[0].location_area.name
+    fridge = fridge.charAt(0).toUpperCase() + fridge.slice(1);
+    LocationTxt.innerText = "Location: " + fridge
+}
+
+const PokemonEvo = async (id) => {
+    const promise = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}`);
     const data = await promise.json();
-    console.log(data)
-    if(data.length == 0){
-        LocationTxt.textContent = 'Location Found: N/A'
-    }else{
-        LocationTxt.textContent = `Location Found: ${data[0].location_area.name}`; 
-    }
+    console.log(data.chain.evolves_to[0].species.name)
 }
 
 function fillstuff(data) {
@@ -166,8 +249,10 @@ function fillstuff(data) {
             PokeImg.classList.add('border-x-yellow-400')
         }
         PokeImg.src = img;
+        PokeImg2.src = img;
     });
     PokeImg.src = img;
+    PokeImg2.src = img;
 
 
     //Abilities text
@@ -369,7 +454,6 @@ function fillstuff(data) {
 
     //Evolution Src
 
-    Evo1.src = data.sprites.other.showdown.front_default
 
 
     //Location Text
